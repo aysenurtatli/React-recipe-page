@@ -9,7 +9,7 @@ function Categories() {
 
 
   return (
-    <div className='max-w-xs bg-prairie-sand-100 h-fit sticky top-2'>
+    <div className='max-w-xs bg-prairie-sand-100 sticky right-3 top-3 h-fit'>
         <h3>Categories</h3>
         <ul>
              {categories.map((category, index) => (
