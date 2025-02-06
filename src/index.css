@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+body {
+    font-family: "Nunito", serif;
+}
+
+.text-container {
+    overflow: hidden;
+    background: white;
+    white-space: nowrap;
+}
+
+.text-slide {
+    display: inline-block;
+
+    animation: 5s slide infinite linear;
+}
+
+.text-item {
+    margin: 0 20px;
+}
+
+.text-item:hover .text-slide {
+    animation-play-state: paused;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+
+    }
+}
