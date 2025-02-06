@@ -3,15 +3,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipesAsync } from '../redux/app/features/recipesSlice';
 import { Link } from 'react-router';
 import Recipe from '../components/Recipe';
+import Loading from '../components/Loading';
+import Categories from '../components/Categories';
 
 function Recipes() {
     const [searchRecipe, setSearchRecipe] = useState("");
+    const [loading, setLoading] = useState(true)
     const [recipeDifficulty, setRecipeDifficulty] = useState("");
     const { recipes } = useSelector((state) => state.recipes);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchRecipesAsync())
+        const fetchData = async () => {
+            await dispatch(fetchRecipesAsync());
+            setLoading(false)
+        }
+        fetchData()
     }, [dispatch])
 
     const handleRecipeSearch = (e) => {
@@ -33,6 +40,7 @@ function Recipes() {
 
     return (
         <div className='container max-w-screen-xl mx-auto'>
+            {loading && <Loading/>}
             <div>
                 <h2 className='text-5xl text-center font-bold text-prairie-sand-900 my-5'>Recipes</h2>
             </div>
@@ -53,18 +61,21 @@ function Recipes() {
                     ))}
                 </select>
             </div>
-            <section>
-                <div className='py-4 px-2 mx-auto max-w-screen-xl sm:py-4 lg:px-6'>
-                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 h-full gap-4'>
-                        {filteredRecipes.length > 0 ? (
-                            filteredRecipes.map((recipe, index) => (
-                                <Recipe key={index} recipe={recipe} />
-                            ))
-                        ) : <p>No Recipes Found</p>}
+            <div className='grid grid-cols-1 sm:grid-cols-[3fr_1fr]'>
+                <section>
+                    <div className='py-4 px-2 mx-auto max-w-screen-xl sm:py-4 lg:px-6'>
+                        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 h-full gap-4'>
+                            {filteredRecipes.length > 0 ? (
+                                filteredRecipes.map((recipe, index) => (
+                                    <Recipe key={index} recipe={recipe} />
+                                ))
+                            ) : <p>No Recipes Found</p>}
 
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+                <Categories/>
+            </div>
         </div>
     )
 }
