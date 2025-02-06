@@ -44,7 +44,7 @@ function Recipes() {
             <div>
                 <h2 className='text-5xl text-center font-bold text-prairie-sand-900 my-5'>Recipes</h2>
             </div>
-            <div className='flex my-3 '>
+            <div className='flex my-3 px-4'>
                 <input
                     type="text"
                     placeholder='Search Recipe...'
