@@ -23,7 +23,7 @@ const Header = () => {
         <div>
             <div
                 className={`${styles.navbar} z-0 absolute top-0 
-            ${isMenuOpen && isDropdownOpen ? 'h-[500px]' : isMenuOpen ? 'h-[300px]' : 'h-[150px]'}`}
+            ${isMenuOpen && isDropdownOpen ? 'h-[500px]' : isMenuOpen ? 'h-[300px]' : 'h-[170px]'}`}
             >
             </div>
             <nav className='flex flex-wrap max-w-screen-2xl items-center justify-between p-8 mx-auto z-10 relative'>
