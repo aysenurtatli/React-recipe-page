@@ -29,7 +29,7 @@ function RecipeDetails() {
 
 
     return (
-        <div className='container max-w-screen-xl mx-auto'>
+        <div className='container max-w-screen-xl mx-auto my-10'>
             {loading ? (<Loading />) : (
                 <div className='grid grid-cols-1 gap-5 py-4 px-2 mx-auto max-w-screen-xl sm:py-4 lg:px-6 sm:grid-cols-[2fr_1fr]'>
                     <div>
