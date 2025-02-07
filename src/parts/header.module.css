@@ -1,0 +1,7 @@
+.navbar {
+    background-color: rgb(246, 182, 119);
+    mask: radial-gradient(42.49px at 50% calc(100% - 57px), #000 99%, #0000 101%) calc(50% - 76px) 0/152px 100%, radial-gradient(42.49px at 50% calc(100% + 19px), #0000 99%, #000 101%) 50% calc(100% - 38px)/152px 100% repeat-x;
+    -webkit-mask: radial-gradient(42.49px at 50% calc(100% - 57px), #000 99%, #0000 101%) calc(50% - 76px) 0/152px 100%, radial-gradient(42.49px at 50% calc(100% + 19px), #0000 99%, #000 101%) 50% calc(100% - 38px)/152px 100% repeat-x;
+    width: 100%;
+    z-index: -99;
+}

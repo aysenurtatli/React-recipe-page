@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import { fetchRecipesAsync } from '../redux/app/features/recipesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import Loading from '../components/Loading';
+
 
 function HomePage() {
-
-    const [recipes, setRecipes] = useState([]);
+    const [loading, setLoading] = useState(true)
+    const { recipes } = useSelector((state) => state.recipes)
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        axios
-            .get('https://dummyjson.com/recipes')
-            .then((response) => setRecipes(response.data.recipes))
-            .catch((error) => {
-                console.error(error)
-            })
-    }, [])
+        const fetchData = async () => {
+            await dispatch(fetchRecipesAsync());
+            setLoading(false)
+        }
+        fetchData()
+    }, [dispatch])
 
     const first5Recipes = recipes.slice(0, 5);
 
 
     return (
         <div className='container mx-auto my-10'>
+            {loading && <Loading />}
             <div>
                 <h2 className='text-5xl text-center font-bold text-prairie-sand-900 my-5'>Recipe Ideas</h2>
             </div>
@@ -31,7 +35,7 @@ function HomePage() {
                                     <img src={recipe.image} alt="" className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" />
                                     <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
                                     <div className='bg-prairie-sand-200 absolute bottom-0
-                                     left-0 w-full z-10'>
+                                     left-0 w-full z-1'>
                                         <h3 className="z-10 text-2xl font-medium p-1 text-prairie-sand-900 xs:text-xl md:text-2xl">{recipe.name}</h3>
                                     </div>
                                 </a>

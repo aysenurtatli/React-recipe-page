@@ -16,11 +16,17 @@ const Header = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen)
+    }
     return (
         <div>
-            <div className={`${styles.navbar} z-0 ${isMenuOpen ? 'h-[300px]' : 'h-[150px]'} absolute top-0`}></div>
-            <nav className='flex flex-wrap max-w-screen-2xl items-center justify-between p-8 mx-auto z-10'>
+            <div
+                className={`${styles.navbar} z-0 absolute top-0 
+            ${isMenuOpen && isDropdownOpen ? 'h-[500px]' : isMenuOpen ? 'h-[300px]' : 'h-[150px]'}`}
+            >
+            </div>
+            <nav className='flex flex-wrap max-w-screen-2xl items-center justify-between p-8 mx-auto z-10 relative'>
                 <Link to="/" className='text-prairie-sand-700 text-3xl font-bold'>Tasty</Link>
                 <button
                     onClick={toggleMenu}
@@ -32,7 +38,7 @@ const Header = () => {
                         <path stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
                     </svg>
                 </button>
-                <div className={`${isMenuOpen ? `block my-4 ` : 'hidden'} w-full md:block md:w-auto z-10`}>
+                <div className={`${isMenuOpen ? `block my-4 ` : 'hidden'} w-full md:block md:w-auto z-10 `}>
                     <ul className='font-bold text-xl text-prairie-sand-900 flex flex-col gap-3 md:gap-0 p-4 md:p-0 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0'>
                         <li>
                             <button
@@ -42,7 +48,7 @@ const Header = () => {
                             >
                                 Recipes <IoIosArrowDown />
                             </button>
-                            <RecipesDropdown isDropdownOpen={isDropdownOpen} />
+                            <RecipesDropdown isDropdownOpen={isDropdownOpen} toggleDropdown={toggleDropdown} />
                         </li>
                         <li><Link to="/addRecipe">Add Recipe</Link></li>
                     </ul>
