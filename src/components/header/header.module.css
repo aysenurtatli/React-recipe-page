@@ -1,7 +1,11 @@
 .navbar {
     background-color: rgb(246, 182, 119);
-    mask: radial-gradient(42.49px at 50% calc(100% - 57px), #000 99%, #0000 101%) calc(50% - 76px) 0/152px 100%, radial-gradient(42.49px at 50% calc(100% + 19px), #0000 99%, #000 101%) 50% calc(100% - 38px)/152px 100% repeat-x;
-    -webkit-mask: radial-gradient(42.49px at 50% calc(100% - 57px), #000 99%, #0000 101%) calc(50% - 76px) 0/152px 100%, radial-gradient(42.49px at 50% calc(100% + 19px), #0000 99%, #000 101%) 50% calc(100% - 38px)/152px 100% repeat-x;
+    mask:
+    radial-gradient(5.38rem at 50% calc(100% - 7.6rem),#000 99%,#0000 101%) calc(50% - 8rem) 0/16rem 100%,
+    radial-gradient(5.38rem at 50% calc(100% + 3.6rem),#0000 99%,#000 101%) 50% calc(100% - 4rem)/16rem 100% repeat-x;
+    -webkit-mask: radial-gradient(5.38rem at 50% calc(100% - 7.6rem),#000 99%,#0000 101%) calc(50% - 8rem) 0/16rem 100%,
+    radial-gradient(5.38rem at 50% calc(100% + 3.6rem),#0000 99%,#000 101%) 50% calc(100% - 4rem)/16rem 100% repeat-x;
     width: 100%;
     z-index: -99;
-}
+  }
+

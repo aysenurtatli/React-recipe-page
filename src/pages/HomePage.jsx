@@ -7,6 +7,7 @@ import LastRecipe from '../components/homePage/LastRecipe';
 import { IoIosArrowForward } from "react-icons/io";
 
 
+
 function HomePage() {
     const [loading, setLoading] = useState(true)
     const [meal, setMeal] = useState("")
@@ -24,6 +25,7 @@ function HomePage() {
 
     const first5Recipes = recipes.slice(0, 5);
 
+<<<<<<< HEAD
 
     useEffect(() => {
         const mealTime = () => {
@@ -85,6 +87,17 @@ function HomePage() {
                 <Link to="/recipes" className='flex items-center'>See all Recipes <IoIosArrowForward /></Link>
             </div>
         </div >
+=======
+ 
+    return (
+            <div className='container mx-auto my-10 h-auto'>
+                {loading && <Loading />}
+                
+                <div>
+                    <h2 className='text-5xl text-center font-bold text-prairie-sand-900'>Recipe Ideas</h2>
+                </div>
+            </div>
+>>>>>>> fe112724527dcda1e681b7b17fe5538a4b1b395a
     )
 }
 
