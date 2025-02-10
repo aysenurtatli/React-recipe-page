@@ -1,16 +1,13 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link } from 'react-router';
 import styles from './header.module.css'
 import { IoIosArrowDown } from "react-icons/io";
-import logo from '../assets/logo.png'
-import { useSelector } from 'react-redux';
-import RecipesDropdown from '../components/header/RecipesDropdown';
+import RecipesDropdown from './RecipesDropdown';
 
 const Header = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
-
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -26,7 +23,7 @@ const Header = () => {
             ${isMenuOpen && isDropdownOpen ? 'h-[500px]' : isMenuOpen ? 'h-[300px]' : 'h-[150px]'}`}
             >
             </div>
-            <nav className='flex flex-wrap max-w-screen-2xl items-center justify-between p-8 mx-auto z-10 relative'>
+            <nav className='flex flex-wrap container items-center justify-between p-8 mx-auto z-10 relative'>
                 <Link to="/" className='text-prairie-sand-700 text-3xl font-bold'>Tasty</Link>
                 <button
                     onClick={toggleMenu}

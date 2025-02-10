@@ -10,7 +10,7 @@ function Tags({ recipes }) {
     }, [recipes])
 
     return (
-        <div className='w-full sm:w-[500px] my-10 h-auto relative bg-prairie-sand-400 rounded-md p-2  mx-auto' >
+        <div className='w-full sm:w-[500px] h-auto bg-prairie-sand-400 rounded-md p-2' >
             <h3 className='font-bold text-xl text-prairie-sand-50'>Try This Recipes</h3>
             <ul className='flex flex-wrap gap-4 my-2 mx-5'>
                 {tags.map((tag) => (

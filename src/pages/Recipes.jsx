@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipesAsync } from '../redux/app/features/recipesSlice';
 import { Link, useParams } from 'react-router';
-import Recipe from '../components/Recipe';
+import Recipe from '../components/recipes/Recipe';
 import Loading from '../components/Loading';
 import RecipeFilter from '../components/recipes/RecipeFilter';
 import Tags from '../components/recipes/Tags';
@@ -42,10 +42,10 @@ function Recipes() {
         })
 
     return (
-        <div className='container max-w-screen-xl mx-auto my-20 py-4 px-2 sm:py-3'>
+        <div className='container max-w-screen-xl mx-auto my-20 py-4 px-4 sm:py-3'>
             {loading && <Loading />}
             <div>
-                <h2 className='text-5xl text-center font-bold text-prairie-sand-900 my-5'>{category ? `${category} Recipes` : "All Recipes"}</h2>
+                <h2 className='text-5xl font-bold text-prairie-sand-900 my-5'>{category ? `${category.charAt(0).toUpperCase() + category.slice(1)} Recipes` : "All Recipes"}</h2>
             </div>
             <Tags recipes={recipes} />
             <RecipeFilter
@@ -61,7 +61,7 @@ function Recipes() {
             <Cuisine recipes={recipes} />
             <div className='z-20'>
                 <section>
-                    <div className='py-4 px-2 sm:py-3'>
+                    <div className='py-4 px-2 sm:py-0'>
                         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4'>
                             {filteredRecipes.length > 0 ? (
                                 filteredRecipes.map((recipe, index) => (

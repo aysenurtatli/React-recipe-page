@@ -1,13 +1,15 @@
+import ScrollToTop from './components/ScrollToTop'
 import HomePage from './pages/HomePage'
 import RecipeDetails from './pages/RecipeDetails'
 import Recipes from './pages/Recipes'
-import Header from './parts/Header'
+import Header from './components/header/Header'
 
 import { Routes, Route } from 'react-router'
 function App() {
   return (
     <>
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/recipes' element={<Recipes />}></Route>

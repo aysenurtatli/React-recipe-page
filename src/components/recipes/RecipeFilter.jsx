@@ -11,7 +11,7 @@ function RecipeFilter({ searchRecipe, setSearchRecipe, recipeDifficulty, setReci
         setRecipeDifficulty(e.target.value)
     }
     return (
-        <div className='flex px-4 my-10 relative'>
+        <div className='flex w-full mt-4 relative'>
             <input
                 type="text"
                 placeholder='Search Recipe...'
