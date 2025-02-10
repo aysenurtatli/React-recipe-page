@@ -9,7 +9,7 @@ function RecipesDropdown({ isDropdownOpen, toggleDropdown }) {
     const categories = [...new Set(recipes.flatMap((recipe) => recipe.mealType))]
 
     return (
-        <div id='dropdownNavbar' className={` ${isDropdownOpen ? 'block' : 'hidden'} z-20 static md:absolute md:bg-prairie-sand-100 md:border border-prairie-sand-400 rounded-md md:p-4 my-2 right-40`}>
+        <div id='dropdownNavbar' className={` ${isDropdownOpen ? 'block' : 'hidden'} z-20 static md:absolute md:bg-prairie-sand-100 md:border text-white sm:text-prairie-sand-800 border-prairie-sand-400 rounded-md md:p-4 my-2 right-40`}>
             <ul aria-labelledby='dropdownLargeButton' className='py-2 text-base grid  grid-cols-2'>
                 {categories.map((category, index) => (
                     <li key={index} className='block py-2 px-4 hover:bg-prairie-sand-50 duration-100 rounded-md'>

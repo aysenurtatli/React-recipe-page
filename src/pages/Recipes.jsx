@@ -7,11 +7,13 @@ import Loading from '../components/Loading';
 import RecipeFilter from '../components/recipes/RecipeFilter';
 import Tags from '../components/recipes/Tags';
 import Cuisine from '../components/recipes/Cuisine';
+import NavigateToTop from '../components/recipes/NavigateToTop';
 
 function Recipes() {
     const [searchRecipe, setSearchRecipe] = useState("");
     const [loading, setLoading] = useState(true)
     const [selectedTags, setSelectedTags] = useState([])
+    const [selectedCuisine, setSelectedCuisine] = useState("");
     const [recipeDifficulty, setRecipeDifficulty] = useState("");
     const { category, tag } = useParams();
     const { recipes } = useSelector((state) => state.recipes);
@@ -40,14 +42,24 @@ function Recipes() {
             }
             return true;
         })
+        .filter((recipe) => {
+            if (selectedCuisine) {
+                return recipe.cuisine && recipe.cuisine.toLowerCase() === selectedCuisine.toLowerCase()
+            }
+
+            return true
+        })
+
+
 
     return (
         <div className='container max-w-screen-xl mx-auto my-20 py-4 px-4 sm:py-3'>
             {loading && <Loading />}
             <div>
-                <h2 className='text-5xl font-bold text-prairie-sand-900 my-5'>{category ? `${category.charAt(0).toUpperCase() + category.slice(1)} Recipes` : "All Recipes"}</h2>
+                <div>
+                    <h2 className='text-5xl font-bold text-prairie-sand-900  my-5'>{category ? `${category.charAt(0).toUpperCase() + category.slice(1)} Recipes` : "All Recipes"}</h2>
+                </div>
             </div>
-            <Tags recipes={recipes} />
             <RecipeFilter
                 searchRecipe={searchRecipe}
                 setSearchRecipe={setSearchRecipe}
@@ -58,7 +70,10 @@ function Recipes() {
                 recipes={recipes}
                 category={category}
             />
-            <Cuisine recipes={recipes} />
+            <Cuisine
+                recipes={recipes}
+                selectedCuisine={selectedCuisine}
+                setSelectedCuisine={setSelectedCuisine} />
             <div className='z-20'>
                 <section>
                     <div className='py-4 px-2 sm:py-0'>
@@ -71,7 +86,12 @@ function Recipes() {
                         </div>
                     </div>
                 </section>
+                <div className='my-4'>
+                    <Tags recipes={recipes} />
+                </div>
             </div>
+
+            <NavigateToTop />
         </div>
     )
 }

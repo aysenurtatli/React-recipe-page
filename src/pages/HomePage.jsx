@@ -57,9 +57,9 @@ function HomePage() {
     return (
         <div className='container max-w-screen-xl mx-auto my-20 py-4 px-4 sm:py-3'>
             {loading && <Loading />}
-            <div className='mb-10'>
+            <div className='mb-10 w-auto md:w-full'>
                 <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-prairie-sand-900 my-5'>
-                    Don't you know what to cook for {meal} ? <span className='block'>you are in the right place!</span></h2>
+                    Don't you know what to cook for {meal} ? <span className='block'>you're in the right place!</span></h2>
             </div>
             <section className="bg-white">
                 <div>
@@ -67,12 +67,12 @@ function HomePage() {
                         <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {filteredRecipes.map((recipe, index) => (
                                 <div key={index} className="bg-gray-50 h-auto flex flex-col">
-                                    <a href="#" className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+                                    <Link to={`/recipes/recipe/${recipe.id}`} className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
                                         <img src={recipe.image} alt="" className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" />
                                         <div className='bg-prairie-sand-100 absolute bottom-0 left-0 w-full z-1'>
                                             <h3 className="z-10 text-lg sm:text-xl font-medium p-1 text-prairie-sand-900">{recipe.name}</h3>
                                         </div>
-                                    </a>
+                                    </Link>
                                 </div>
                             ))}
                         </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function RecipeFilter({ searchRecipe, setSearchRecipe, recipeDifficulty, setRecipeDifficulty, recipes, category }) {
+function RecipeFilter({ searchRecipe, setSearchRecipe, recipeDifficulty, setRecipeDifficulty, recipes, }) {
     const difficulties = [...new Set(recipes.map((recipe) => recipe.difficulty))];
 
     const handleRecipeSearch = (e) => {

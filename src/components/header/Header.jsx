@@ -17,14 +17,14 @@ const Header = () => {
         setIsDropdownOpen(!isDropdownOpen)
     }
     return (
-        <div>
+        <div className='bg-prairie-sand-400'>
             <div
                 className={`${styles.navbar} z-0 absolute top-0 
             ${isMenuOpen && isDropdownOpen ? 'h-[500px]' : isMenuOpen ? 'h-[300px]' : 'h-[170px]'}`}
             >
             </div>
             <nav className='flex flex-wrap container items-center justify-between p-8 mx-auto z-10 relative'>
-                <Link to="/" className='text-prairie-sand-700 text-3xl font-bold'>Tasty</Link>
+                <Link to="/" className='text-white text-3xl font-bold'>Tasty</Link>
                 <button
                     onClick={toggleMenu}
                     type='button'
@@ -36,7 +36,7 @@ const Header = () => {
                     </svg>
                 </button>
                 <div className={`${isMenuOpen ? `block my-4 ` : 'hidden'} w-full md:block md:w-auto z-10 `}>
-                    <ul className='font-bold text-xl text-prairie-sand-900 flex flex-col gap-3 md:gap-0 p-4 md:p-0 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0'>
+                    <ul className='font-bold text-xl text-white flex flex-col gap-3 md:gap-0 p-4 md:p-0 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0'>
                         <li>
                             <button
                                 id='dropdownNavbarLink'
@@ -47,7 +47,7 @@ const Header = () => {
                             </button>
                             <RecipesDropdown isDropdownOpen={isDropdownOpen} toggleDropdown={toggleDropdown} />
                         </li>
-                        <li><Link to="/addRecipe">Add Recipe</Link></li>
+                        <li><Link to="/contact">Contact</Link></li>
                     </ul>
                 </div>
             </nav>

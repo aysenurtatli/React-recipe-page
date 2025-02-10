@@ -7,8 +7,6 @@ function LastRecipe({ recipe }) {
     const lastRecipe = recipes[recipes.length - 1]
     if (!recipes.length) return null;
 
-
-    console.log(lastRecipe)
     return (
         <div className="relative bg-white  rounded-lg overflow-hidden md:row-span-2 h-[500px]">
             <Link to={`/recipes/recipe/${lastRecipe.id}`} className="group relative block h-full">
