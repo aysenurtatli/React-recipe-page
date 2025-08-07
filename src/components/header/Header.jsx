@@ -47,7 +47,7 @@ const Header = () => {
                             </button>
                             <RecipesDropdown isDropdownOpen={isDropdownOpen} toggleDropdown={toggleDropdown} />
                         </li>
-                        <li><Link to="/contact">Contact</Link></li>
+                        {/* <li><Link to="/contact">Contact</Link></li> */}
                     </ul>
                 </div>
             </nav>
